@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="input_border">#7DA7AD</color>
+    <color name="overlay_soft">#33000000</color>
+    <color name="primary">#007A8C</color>
+    <color name="primary_dark">#006B7A</color>
+    <color name="text_dark">#173D42</color>
+    <color name="text_muted">#668083</color>
+    <color name="white">#FFFFFF</color>
+    <dimen name="button_radius">24dp</dimen>
+    <dimen name="card_radius">22dp</dimen>
+    <dimen name="screen_padding">24dp</dimen>
+    <string name="app_name">Travelin</string>
+    <string name="splash_slogan">Your Passport to Seamless Adventures!</string>
+    <style name="Theme.Travelin" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary</item>
+    </style>
+</resources>
