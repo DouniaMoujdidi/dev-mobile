@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.travelin.app-mergeDebugResources-32:/values-id/values-id.xml",
+            "outputFile": "com.example.travelin.app-mergeDebugResources-48:/values-id/values-id.xml",
             "map": [
                 {
                     "source": "C:\\Users\\hp\\.gradle\\caches\\9.0.0\\transforms\\9df29a08a12e42e5e3d34648b05819d0\\transformed\\jetified-facebook-common-18.2.3\\res\\values-id\\values-id.xml",

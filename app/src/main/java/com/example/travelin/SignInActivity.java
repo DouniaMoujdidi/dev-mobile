@@ -101,7 +101,7 @@ public class SignInActivity extends Activity {
     }
 
     private void setupGoogleSignIn() {
-        String webClientId = getString(R.string.default_web_client_id);
+        String webClientId = getWebClientId();
         GoogleSignInOptions options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .requestIdToken(webClientId)
@@ -146,6 +146,7 @@ public class SignInActivity extends Activity {
                     setLoading(false);
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Signed in successfully", Toast.LENGTH_SHORT).show();
+                        openHome();
                     } else {
                         showAuthError(task.getException());
                     }
@@ -210,6 +211,7 @@ public class SignInActivity extends Activity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Google sign in successful", Toast.LENGTH_SHORT).show();
+                        openHome();
                     } else {
                         showAuthError(task.getException());
                     }
@@ -222,10 +224,18 @@ public class SignInActivity extends Activity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Facebook sign in successful", Toast.LENGTH_SHORT).show();
+                        openHome();
                     } else {
                         showAuthError(task.getException());
                     }
                 });
+    }
+
+    private void openHome() {
+        Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     private boolean validateEmailAndPassword(String email, String password) {
@@ -251,11 +261,24 @@ public class SignInActivity extends Activity {
     }
 
     private boolean isGoogleConfigured() {
-        if (!getString(R.string.default_web_client_id).startsWith("YOUR_")) {
+        if (!getWebClientId().startsWith("YOUR_")) {
             return true;
         }
         Toast.makeText(this, "Configure default_web_client_id from Firebase", Toast.LENGTH_LONG).show();
         return false;
+    }
+
+    private String getWebClientId() {
+        String configuredId = getString(R.string.travelin_web_client_id);
+        if (!configuredId.startsWith("YOUR_")) {
+            return configuredId;
+        }
+
+        int generatedId = getResources().getIdentifier("default_web_client_id", "string", getPackageName());
+        if (generatedId != 0) {
+            return getString(generatedId);
+        }
+        return configuredId;
     }
 
     private boolean isFacebookConfigured() {

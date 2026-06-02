@@ -101,7 +101,7 @@ public class SignUpActivity extends Activity {
     private void setupGoogleSignIn() {
         GoogleSignInOptions options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
-                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestIdToken(getWebClientId())
                 .build();
         googleSignInClient = GoogleSignIn.getClient(this, options);
     }
@@ -246,11 +246,24 @@ public class SignUpActivity extends Activity {
     }
 
     private boolean isGoogleConfigured() {
-        if (!getString(R.string.default_web_client_id).startsWith("YOUR_")) {
+        if (!getWebClientId().startsWith("YOUR_")) {
             return true;
         }
         Toast.makeText(this, "Configure default_web_client_id from Firebase", Toast.LENGTH_LONG).show();
         return false;
+    }
+
+    private String getWebClientId() {
+        String configuredId = getString(R.string.travelin_web_client_id);
+        if (!configuredId.startsWith("YOUR_")) {
+            return configuredId;
+        }
+
+        int generatedId = getResources().getIdentifier("default_web_client_id", "string", getPackageName());
+        if (generatedId != 0) {
+            return getString(generatedId);
+        }
+        return configuredId;
     }
 
     private boolean isFacebookConfigured() {

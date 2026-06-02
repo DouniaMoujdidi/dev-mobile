@@ -13,7 +13,9 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            startActivity(new Intent(SplashActivity.this, GetStartedActivity.class));
+            Intent intent = new Intent(SplashActivity.this, GetStartedActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
             finish();
         }, 2000);
     }

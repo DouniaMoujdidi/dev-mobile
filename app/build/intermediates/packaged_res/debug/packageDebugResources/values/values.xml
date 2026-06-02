@@ -11,7 +11,7 @@
     <dimen name="card_radius">22dp</dimen>
     <dimen name="screen_padding">24dp</dimen>
     <string name="app_name">Travelin</string>
-    <string name="default_web_client_id">YOUR_WEB_CLIENT_ID_FROM_FIREBASE</string>
+    <string name="default_web_client_id" translatable="false">898257686913-h2a76f84vjrbmomsijbvq9g2s53vlukg.apps.googleusercontent.com</string>
     <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
     <string name="facebook_client_token">YOUR_FACEBOOK_CLIENT_TOKEN</string>
     <string name="fb_login_protocol_scheme">fbYOUR_FACEBOOK_APP_ID</string>
@@ -22,10 +22,16 @@
     <string name="google_storage_bucket" translatable="false">travelin-809a9.firebasestorage.app</string>
     <string name="project_id" translatable="false">travelin-809a9</string>
     <string name="splash_slogan">Your Passport to Seamless Adventures!</string>
-    <style name="Theme.Travelin" parent="android:style/Theme.Material.Light.NoActionBar">
+    <string name="travelin_web_client_id">YOUR_WEB_CLIENT_ID_FROM_FIREBASE</string>
+    <style name="Theme.Travelin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:fontFamily">sans</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/primary</item>
+        <item name="colorOnSecondary">@color/white</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/primary</item>
         <item name="android:navigationBarColor">@color/primary</item>
