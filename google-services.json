@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "573765382440",
+    "project_id": "travelin-98217",
+    "storage_bucket": "travelin-98217.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573765382440:android:f89b8f1d1938e05e89e01d",
+        "android_client_info": {
+          "package_name": "com.example.travelin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "573765382440-mr6siqtieb1l6su09251phfqlhot0q16.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travelin",
+            "certificate_hash": "d0d362774dd7c52bc468c133faf5c6de6b6a8209"
+          }
+        },
+        {
+          "client_id": "573765382440-n3emia44jj69vu4chrn99m5u4j4h1j9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGmhPVr_Tk2rHqa1Im3-iYpy60US8pZt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573765382440-n3emia44jj69vu4chrn99m5u4j4h1j9p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 package com.example.travelin;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.TextView;
@@ -28,7 +29,13 @@ public class HomeActivity extends Activity {
         RecyclerView tripsRecyclerView = findViewById(R.id.recycler_trips);
         tripsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         tripsRecyclerView.setNestedScrollingEnabled(true);
-        tripsRecyclerView.setAdapter(new TripAdapter(createTrips()));
+        tripsRecyclerView.setAdapter(new TripAdapter(createTrips(), trip -> {
+            Intent intent = new Intent(this, TripDetailActivity.class);
+            intent.putExtra(TripDetailActivity.EXTRA_TRIP_NAME, trip.getName());
+            intent.putExtra(TripDetailActivity.EXTRA_TRIP_DATES, trip.getDates());
+            intent.putExtra(TripDetailActivity.EXTRA_TRIP_IMAGE, trip.getImageResId());
+            startActivity(intent);
+        }));
 
         FloatingActionButton addTripButton = findViewById(R.id.fab_add_trip);
         addTripButton.setOnClickListener(v ->

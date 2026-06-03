@@ -18,9 +18,11 @@ import java.util.List;
 
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder> {
     private final List<Trip> trips;
+    private final OnTripClickListener listener;
 
-    public TripAdapter(List<Trip> trips) {
+    public TripAdapter(List<Trip> trips, OnTripClickListener listener) {
         this.trips = trips;
+        this.listener = listener;
     }
 
     @NonNull
@@ -57,6 +59,11 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
                 outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), radius);
             }
         });
+        holder.tripCard.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onTripClick(trip);
+            }
+        });
     }
 
     @Override
@@ -79,5 +86,9 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripViewHolder
             nameText = itemView.findViewById(R.id.txt_trip_name);
             metaText = itemView.findViewById(R.id.txt_trip_meta);
         }
+    }
+
+    public interface OnTripClickListener {
+        void onTripClick(Trip trip);
     }
 }
